@@ -334,8 +334,9 @@ public class HorseRaceDatabaseAccess {
 		        		s += ", " + a;
 		        	}
 		        }
-		        
+		        System.out.println("Emails to send to: " + s);		        
 		        return s;
+
 	        } catch (Exception e) {
 	            System.err.println("GetItem failed.");
 	            System.err.println(e.getMessage());

@@ -23,7 +23,7 @@ public class Player {
 
 	public Player(String name, String email, String code) {
 		super();
-		if (name!=null) this.playerName = name;
+		this.playerName = name;
 		this.email = email;
 		this.code = code;
 	}

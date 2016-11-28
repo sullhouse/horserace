@@ -33,7 +33,7 @@ public class PlayerBetAPI extends HttpServlet {
 				response.getWriter().append("{\"error\" : \"Player code not found\" }");
 				return;
 			}
-			if (player.getPlayerName()==null) needPlayerName = true;
+			if (player.getPlayerName().equals("NEED_PLAYER_NAME")) needPlayerName = true;
 		} else {
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().append("{\"error\" : \"Player code required\" }");
