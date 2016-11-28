@@ -34,7 +34,9 @@ public class JoinHorseRaceAPI extends HttpServlet {
 		
     	if (player==null) {
 			String playerName = "NEED_PLAYER_NAME";
+			
 	    	player = new Player(playerName, email);
+	    	
 	    	playerDatabaseAccess.putPlayer(player);
 		}
 		
@@ -46,10 +48,11 @@ public class JoinHorseRaceAPI extends HttpServlet {
 		
 		JSONObject horseRaceJson = horseRaceDatabaseAccess.getHorseRace(horseRaceId);
 		
-		String configHtml = "<h3>A new horse race has been scheduled!</h3>"
-				+ "Length: " + horseRaceJson.getInt("horseRaceLength");
-		
 		Date startTime = getDateFromString(horseRaceJson.getString("startTime"));
+		
+		String configHtml = "<h3>A new horse race has been scheduled!</h3>"
+				+ "Length: " + horseRaceJson.getInt("horseRaceLength")
+				+ "<br>Start Time: " + getDateString(startTime);
 		
 		configHtml += "<br>Start Time: " + startTime.toString();
 		
